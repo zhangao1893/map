@@ -1,0 +1,24 @@
+{
+  "servers": [
+    {
+      "url": "/getName",
+      "desc": "获取用户姓名",
+      "type": "get",
+      "result": {
+        "list|1-10": [
+          {
+            "id|+1": 1
+          }
+        ]
+      }
+    },
+    {
+      "url": "/modifyName",
+      "desc": "修改用户姓名",
+      "type": "post",
+      "result": {
+        "state": true
+      }
+    }
+  ]
+}

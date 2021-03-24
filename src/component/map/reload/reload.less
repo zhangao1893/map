@@ -1,0 +1,33 @@
+/**
+ * Created by fanweihua on 2020/10/09.
+ * 复原
+ */
+.aside_toolBar_reload {
+  position: absolute;
+  bottom: 7.5rem;
+  right: 0.6rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s;
+  transform-origin: center bottom;
+  a.tool_button {
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+    opacity: 0.85;
+    padding: 0.4rem;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background-color: #474747;
+    box-sizing: border-box;
+    &:active {
+      span {
+        color: #02e3ef;
+      }
+    }
+    span {
+      color: #fff;
+      font-size: 1rem;
+    }
+  }
+}
