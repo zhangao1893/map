@@ -13,7 +13,7 @@ import { ConfigProvider } from 'antd';
 import { title } from './config/systemConfig'; // 系统内部配置文件
 import zhCN from 'antd/es/locale/zh_CN'; // 国际化(中文)
 import registerStore from '@/common/store/registerStore';
-
+import 'antd/dist/antd.css';
 if (module.hot) {
   module.hot.accept();
 }

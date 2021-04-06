@@ -1,0 +1,35 @@
+.editableTable {
+  thead {
+    tr {
+      &:nth-child(1) {
+        th {
+          &:nth-child(1) {
+            border-left: 1px solid #000 !important;
+          }
+        }
+      }
+    }
+  }
+  th {
+    border-right: 1px solid #000 !important;
+    border-top: 1px solid #000 !important;
+  }
+  .ant-table-tbody {
+    td {
+      border-top: 1px solid #000 !important;
+      border-right: 1px solid #000 !important;
+    }
+    tr {
+      &:nth-last-child(1) {
+        td {
+          border-bottom: 1px solid #000 !important;
+        }
+      }
+      td {
+        &:nth-child(1) {
+          border-left: 1px solid #000 !important;
+        }
+      }
+    }
+  }
+}
