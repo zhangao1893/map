@@ -1,9 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
 export default function line() {
+  const myEcharts = useRef(null);
   useEffect(() => {
-    const myChart = echarts.init(document.getElementById('line'));
-    myChart.setOption({
+    initEcharts();
+    return () => {
+      window.removeEventListener('resize', screenAdapter);
+    };
+  }, []);
+  const initEcharts = () => {
+    myEcharts.current = echarts.init(document.getElementById('line'));
+    myEcharts.current.setOption({
       title: {
         text: '折线'
       },
@@ -23,7 +30,8 @@ export default function line() {
         }
       },
       yAxis: {
-        type: 'value'
+        type: 'value',
+        axisLine: { show: true }
       },
       tooltip: {
         backgroundColor: '#333',
@@ -63,10 +71,21 @@ export default function line() {
         }
       ]
     });
-  }, []);
-  return (
-    <div className="module" id="line">
-      line
-    </div>
-  );
+    window.addEventListener('resize', screenAdapter);
+  };
+
+  const screenAdapter = () => {
+    const line = document.getElementById('line');
+    const fontSize = (line.offsetWidth / 100) * 3.6;
+    const adapterOption = {
+      title: {
+        textStyle: {
+          fontSize: fontSize
+        }
+      }
+    };
+    myEcharts.current.setOption(adapterOption);
+    myEcharts.current.resize();
+  };
+  return <div className="module" id="line"></div>;
 }
