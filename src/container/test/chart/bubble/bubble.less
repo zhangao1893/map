@@ -1,0 +1,56 @@
+.bubble {
+  padding: 4vh 8vw 4vh 8vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.item {
+  width: 7vh;
+  height: 7vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  .label {
+    font-size: 1.5vh;
+    line-height: 1.8vh;
+    color: #000;
+    font-weight: 100;
+  }
+  .value {
+    display: flex;
+    font-size: 2vh;
+    line-height: 100%;
+    font-family: 'numberFont';
+    color: #000;
+  }
+}
+
+@keyframes jump {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  10% {
+    transform: translateX(0.1vh) translateY(-0.4vh);
+  }
+  20% {
+    transform: translateX(0.2vh) translateY(-0.1vh);
+  }
+  30% {
+    transform: translateX(0.2vh) translateY(0.2vh);
+  }
+  50% {
+    transform: translateX(0) translateY(0);
+  }
+  70% {
+    transform: translateX(0) translateY(0.3vh);
+  }
+  80% {
+    transform: translateX(0.1vh) translateY(0.25vh);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}

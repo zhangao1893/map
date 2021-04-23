@@ -21,6 +21,7 @@ const PieDimConfig = {
     itemHoverStyle: { color: 'red' }
   },
   title: { text: 'pieRing Highcharts' },
+  credits: { enabled: false },
   plotOptions: {
     pie: {
       innerSize: 120,
