@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import highcharts from 'highcharts/highstock';
 import highCharts3D from 'highcharts/highcharts-3d';
 highCharts3D(highcharts);
@@ -24,9 +24,9 @@ const PieDimConfig = {
   credits: { enabled: false },
   plotOptions: {
     pie: {
-      innerSize: 120,
+      innerSize: '50%',
       depth: 45,
-      size: 200,
+      size: '80%',
       center: ['40%', '50%'],
       showInLegend: true,
       dataLabels: {
@@ -91,9 +91,17 @@ const PieDimConfig = {
 };
 
 const pieRing = () => {
+  const myHighcharts = useRef(null);
+
   useEffect(() => {
-    highcharts.chart(document.getElementById('pieRing'), PieDimConfig);
+    myHighcharts.current = highcharts.chart(document.getElementById('pieRing'), PieDimConfig);
+    window.addEventListener('resize', screenAdapter);
   }, []);
+  const screenAdapter = () => {
+    // myHighcharts.current.update({});
+    // myHighcharts.current.reflow();
+    // 把宽设成百分比可自适应
+  };
   return <div className="module" id="pieRing" />;
 };
 export default pieRing;
