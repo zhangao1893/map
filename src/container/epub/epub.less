@@ -1,0 +1,45 @@
+.epub {
+  position: relative;
+  #box {
+    width: 50vw;
+    height: 90vh;
+    margin: 0 auto;
+    border: 1px solid #000;
+  }
+  .handleBox {
+    width: 50vw;
+    height: 90vh;
+    border: 1px solid red;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    .left {
+      width: 40%;
+      height: 100%;
+    }
+    .center {
+      width: 20%;
+      height: 100%;
+    }
+    .right {
+      width: 40%;
+      height: 100%;
+    }
+  }
+  .navigation {
+    border: 1px solid #000;
+    height: 90vh;
+    width: 20vw;
+    position: absolute;
+    top: 0;
+    left: 25%;
+    background: gray;
+    overflow-y: auto;
+    .one {
+      height: 5vh;
+      cursor: pointer;
+    }
+  }
+}
