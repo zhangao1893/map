@@ -3,7 +3,44 @@ import Epub from 'epubjs';
 import './epub.less';
 import { Slider } from 'antd';
 const url = `${publicPath}/static/other/book.epub`;
-
+const themeList = [
+  {
+    name: 'default',
+    style: {
+      body: {
+        color: '#000',
+        background: '#fff'
+      }
+    }
+  },
+  {
+    name: 'eye',
+    style: {
+      body: {
+        color: '#000',
+        background: '#ceeaba'
+      }
+    }
+  },
+  {
+    name: 'night',
+    style: {
+      body: {
+        color: '#fff',
+        background: '#000'
+      }
+    }
+  },
+  {
+    name: 'gold',
+    style: {
+      body: {
+        color: '#000',
+        background: 'rgb(241, 236, 226)'
+      }
+    }
+  }
+];
 export default function epub() {
   const rendition = useRef(null);
   const bookLocation = useRef(null);
@@ -21,9 +58,9 @@ export default function epub() {
     });
     rendition.current.display();
     rendition.current.themes.fontSize('16px');
-    rendition.current.themes.register('default', { body: { color: '#000', background: '#fff' } });
-    rendition.current.themes.register('night', { body: { color: '#fff', background: '#000' } });
-    rendition.current.themes.register('other', { body: { color: 'red', background: 'green' } });
+    themeList.forEach(item => {
+      rendition.current.themes.register(item.name, item.style);
+    });
     book.ready
       .then(() => {
         bookNavigation.current = book.navigation;
@@ -56,14 +93,16 @@ export default function epub() {
       rendition.current.themes.fontSize(`${newFont}px`);
     }
   };
-  const changeColor = index => {
-    if (index === 1) {
-      rendition.current.themes.select('default');
-    } else if (index === 2) {
-      rendition.current.themes.select('night');
-    } else {
-      rendition.current.themes.select('other');
-    }
+  const changeColor = name => {
+    // rendition.current.themes.select(name);
+    themeList.forEach(item => {
+      if (item.name === name) {
+        const obj = item.style.body;
+        for (const key in obj) {
+          rendition.current.themes.override(key, obj[key], true);
+        }
+      }
+    });
   };
   const progressChange = progress => {
     const percentage = progress / 100;
@@ -164,27 +203,18 @@ export default function epub() {
         </span>
       </div>
       <div style={{ textAlign: 'center', userSelect: 'none' }}>
-        <span
-          style={{ cursor: 'pointer' }}
-          onClick={() => {
-            changeColor(1);
-          }}>
-          颜色1
-        </span>
-        <span
-          style={{ cursor: 'pointer' }}
-          onClick={() => {
-            changeColor(2);
-          }}>
-          颜色2
-        </span>
-        <span
-          style={{ cursor: 'pointer' }}
-          onClick={() => {
-            changeColor(3);
-          }}>
-          颜色3
-        </span>
+        {themeList.map(item => {
+          return (
+            <span
+              key={item.name}
+              style={{ cursor: 'pointer', margin: '0 1vw' }}
+              onClick={() => {
+                changeColor(item.name);
+              }}>
+              {item.name}
+            </span>
+          );
+        })}
       </div>
       <div
         onClick={() => {
