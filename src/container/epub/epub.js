@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Epub from 'epubjs';
 import './epub.less';
-const url = `${publicPath}/static/other/123.epub`;
+import { Slider } from 'antd';
+const url = `${publicPath}/static/other/book.epub`;
 
 export default function epub() {
   const rendition = useRef(null);
@@ -10,11 +11,12 @@ export default function epub() {
   const [fontSize, setFontSize] = useState(16);
   const [guide, setGuide] = useState([]);
   const [showNav, setShowNav] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const book = new Epub(url);
     rendition.current = book.renderTo('box', {
-      with: '100%',
+      width: '100%',
       height: '100%'
     });
     rendition.current.display();
@@ -35,26 +37,21 @@ export default function epub() {
 
   const next = () => {
     rendition.current.next();
-    setTimeout(() => {
-      const currentLocation = rendition.current.currentLocation();
-      const progress = currentLocation.end.percentage;
-      const location = currentLocation.end.cfi;
-      console.log(progress);
-      console.log(location);
-    }, 50);
+    getPosizition();
   };
 
   const prev = () => {
     rendition.current.prev();
+    getPosizition();
   };
 
   const setFont = flag => {
     if (flag === 'reduce') {
-      const newFont = fontSize === 12 ? 12 : fontSize - 2;
+      const newFont = fontSize === 12 ? 12 : fontSize - 1;
       setFontSize(newFont);
       rendition.current.themes.fontSize(`${newFont}px`);
     } else {
-      const newFont = fontSize === 40 ? 40 : fontSize + 2;
+      const newFont = fontSize === 40 ? 40 : fontSize + 1;
       setFontSize(newFont);
       rendition.current.themes.fontSize(`${newFont}px`);
     }
@@ -75,14 +72,28 @@ export default function epub() {
   };
   const jumpTo = href => {
     rendition.current.display(href);
+    getPosizition();
     setShowNav(false);
   };
   const aa = () => {
-    rendition.current.display('epubcfi(/6/14[A468350_1_En_3_Chapter]!/4/10/10[Sec11]/6[Sec13]/4[Par47]/7:802)');
+    rendition.current.display('epubcfi(/6/10[A468350_1_En_2_Chapter]!/4/12/4[Sec2]/6[Par10]/1:151)');
   };
-  const onchange = e => {
-    progressChange(e.target.value);
+  const onChange = e => {
+    setProgress(e);
+    progressChange(e);
   };
+  const getPosizition = () => {
+    setTimeout(() => {
+      const currentLocation = rendition.current.currentLocation();
+      const progress = currentLocation.end.percentage;
+      const location = currentLocation.end.cfi;
+      setProgress(progress);
+      setProgress(progress * 100);
+      console.log(location);
+      // localStorage.bookIn;
+    }, 500);
+  };
+
   return (
     <div className="epub">
       <div id="box"></div>
@@ -133,6 +144,9 @@ export default function epub() {
           下一页
         </span>
       </div>
+      <div style={{ width: '50%', margin: '0 auto' }}>
+        <Slider step={0.1} value={progress} onChange={onChange} />
+      </div>
       <div style={{ textAlign: 'center', userSelect: 'none' }}>
         <span
           style={{ cursor: 'pointer' }}
@@ -175,10 +189,10 @@ export default function epub() {
       <div
         onClick={() => {
           aa();
-        }}>
-        是打发点
+        }}
+        style={{ textAlign: 'center' }}>
+        跳吧
       </div>
-      <input type="range" onChange={onchange} />
     </div>
   );
 }
