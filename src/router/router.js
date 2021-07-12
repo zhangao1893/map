@@ -14,6 +14,11 @@ const Router = [
     name: 'epub',
     path: '/epub',
     component: asyncComponent(() => import('@/container/epub/epub'))
+  },
+  {
+    name: 'ref',
+    path: '/ref',
+    component: asyncComponent(() => import('@/container/ref/ref'))
   }
 ];
 export default Router;
