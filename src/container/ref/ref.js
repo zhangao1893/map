@@ -9,6 +9,7 @@ export default class ref extends Component {
 
   aaa() {
     this.Ref.current.fn();
+    console.log(this.Ref.current);
   }
 
   render() {
