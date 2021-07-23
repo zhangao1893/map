@@ -6,13 +6,22 @@ import React, { Component } from 'react';
 // import SimulateTable from './simulateTable/simulateTable'; // div仿table样式
 // import RadioTest from './radioTest/radioTest'; // 可取消的单选
 // import Map from './mapComponent/map'; // 地图
-import Chart from './chart/chart';
+// import Pdf from './pdf/pdf'; // pdf阅读
+// import Ref from './ref/ref'; // ref使用
+// import Epub from './epub/epub'; // epub格式电子纸
+import UseEffectAndUseState from './useEffectAndUseState/useEffectAndUseState';
+import Chart from './chart/chart'; // 图表
+
 export default class test extends Component {
+  constructor(props) {
+    super();
+  }
+
   render() {
     return (
-      <div>
+      <div style={{ width: '100%', height: '100%' }}>
         {/* <h1 style={{ textAlign: 'center' }}>测试</h1> */}
-        <Chart />
+        <UseEffectAndUseState />
       </div>
     );
   }
