@@ -14,6 +14,7 @@ import React, { Component } from 'react';
 // import ReduxSaga from './reduxSaga/reduxSaga';
 // import DynamicForm1 from './dynamicForm/dynamicForm';
 import DynamicForm2 from './dynamicForm/dynamicForm2';
+import ReactColor from './reactColor/reactColor';
 
 export default class test extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ export default class test extends Component {
     return (
       <div style={{ width: '100%', height: '100%' }}>
         {/* <h1 style={{ textAlign: 'center' }}>测试</h1> */}
-        <DynamicForm2 />
+        <ReactColor />
       </div>
     );
   }
