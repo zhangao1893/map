@@ -9,7 +9,7 @@ import React, { Component } from 'react';
 // import Pdf from './pdf/pdf'; // pdf阅读
 // import Ref from './ref/ref'; // ref使用
 // import Epub from './epub/epub'; // epub格式电子纸
-// import UseEffectAndUseState from './useEffectAndUseState/useEffectAndUseState';//useState使用出现的问题
+import UseEffectAndUseState from './useEffectAndUseState/useEffectAndUseState'; // useState使用出现的问题
 // import Chart from './chart/chart'; // 图表
 // import ReduxSaga from './reduxSaga/reduxSaga';//redux-saga
 // import DynamicForm1 from './dynamicForm/dynamicForm';//动态表单
@@ -26,7 +26,7 @@ export default class test extends Component {
     return (
       <div style={{ width: '100%', height: '100%' }}>
         {/* <h1 style={{ textAlign: 'center' }}>测试</h1> */}
-        <KeepAlive />
+        <UseEffectAndUseState />
       </div>
     );
   }
