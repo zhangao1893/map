@@ -15,7 +15,8 @@ import UseEffectAndUseState from './useEffectAndUseState/useEffectAndUseState'; 
 // import DynamicForm1 from './dynamicForm/dynamicForm';//动态表单
 // import DynamicForm2 from './dynamicForm/dynamicForm2';//动态表单2
 // import ReactColor from './reactColor/reactColor';//取色器
-import KeepAlive from './keepAlive/keepAlive';
+// import KeepAlive from './keepAlive/keepAlive';
+import SetState from './setState/setState';
 
 export default class test extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ export default class test extends Component {
     return (
       <div style={{ width: '100%', height: '100%' }}>
         {/* <h1 style={{ textAlign: 'center' }}>测试</h1> */}
-        <UseEffectAndUseState />
+        <SetState />
       </div>
     );
   }

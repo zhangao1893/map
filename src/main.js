@@ -14,13 +14,14 @@ import { title } from './config/systemConfig'; // 系统内部配置文件
 import zhCN from 'antd/es/locale/zh_CN'; // 国际化(中文)
 import registerStore from '@/common/store/registerStore';
 import 'antd/dist/antd.css';
+import eruda from 'eruda';
 if (module.hot) {
   module.hot.accept();
 }
 if (title) {
   document.title = title;
 }
-
+eruda.init();
 // 创建store
 const context = require.context('@/model', true, /\.js$/);
 const storeRegister = registerStore();
