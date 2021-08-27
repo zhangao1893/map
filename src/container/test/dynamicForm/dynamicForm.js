@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Form, Input, Button } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 
@@ -10,12 +10,17 @@ const formItemLayoutWithOutLabel = {
 };
 
 const DynamicFieldSet = () => {
+  const [form] = Form.useForm();
+  useEffect(() => {
+    // 直接给formlist设置值他会自动按个数渲染
+    // form.setFieldsValue({ listName: ['1', '2', '3'] });
+  }, []);
   const onFinish = values => {
     console.log('Received values of form:', values);
   };
 
   return (
-    <Form name="dynamic_form_item" {...formItemLayoutWithOutLabel} onFinish={onFinish}>
+    <Form {...formItemLayoutWithOutLabel} form={form} onFinish={onFinish}>
       <Form.List
         name="listName"
         rules={[
