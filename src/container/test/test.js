@@ -10,14 +10,14 @@ import React, { Component } from 'react';
 // import Ref from './ref/ref'; // ref使用
 // import Epub from './epub/epub'; // epub格式电子纸
 // import UseEffectAndUseState from './useEffectAndUseState/useEffectAndUseState'; // useState使用出现的问题
+// import SetState from './setState/setState';// setState使用出现的问题
 // import Chart from './chart/chart'; // 图表
 // import ReduxSaga from './reduxSaga/reduxSaga';//redux-saga
-import DynamicForm1 from './dynamicForm/dynamicForm'; // 动态表单
+// import DynamicForm1 from './dynamicForm/dynamicForm'; // 动态表单
 // import DynamicForm2 from './dynamicForm/dynamicForm2';//动态表单2
 // import ReactColor from './reactColor/reactColor';//取色器
-// import KeepAlive from './keepAlive/keepAlive';
-import SetState from './setState/setState';
-
+// import KeepAlive from './keepAlive/keepAlive';protal使用
+import ReactDraggable from './reactDraggable/reactDraggable'; // 拖拽
 export default class test extends Component {
   constructor(props) {
     super();
@@ -27,7 +27,7 @@ export default class test extends Component {
     return (
       <div style={{ width: '100%', height: '100%' }}>
         {/* <h1 style={{ textAlign: 'center' }}>测试</h1> */}
-        <DynamicForm1 />
+        <ReactDraggable />
       </div>
     );
   }
