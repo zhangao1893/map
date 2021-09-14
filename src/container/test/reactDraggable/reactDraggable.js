@@ -44,11 +44,12 @@ export default function reactDraggable() {
     // 公共属性
     const commonProps = {
       onResetPosition,
-      onClose
+      onClose,
+      moduleItem: item
     };
-    if (item.id === 1) return <One moduleItem={item} {...commonProps} />;
-    if (item.id === 2) return <Two moduleItem={item} {...commonProps} />;
-    if (item.id === 3) return <Three moduleItem={item} {...commonProps} />;
+    if (item.id === 1) return <One {...commonProps} />;
+    if (item.id === 2) return <Two {...commonProps} />;
+    if (item.id === 3) return <Three {...commonProps} />;
   };
 
   // 双击还原位置
