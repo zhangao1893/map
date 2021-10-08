@@ -18,7 +18,9 @@ import React, { Component } from 'react';
 // import ReactColor from './reactColor/reactColor';//取色器
 // import KeepAlive from './keepAlive/keepAlive';protal使用
 // import ReactDraggable from './reactDraggable/reactDraggable'; // 拖拽
-import Decorator from './decorator/decorator';
+// import Decorator from './decorator/decorator';
+import PubSubJs from './pubSubJs';
+
 export default class test extends Component {
   constructor(props) {
     super();
@@ -28,7 +30,7 @@ export default class test extends Component {
     return (
       <div style={{ width: '100%', height: '100%' }}>
         {/* <h1 style={{ textAlign: 'center' }}>测试</h1> */}
-        <Decorator />
+        <PubSubJs />
       </div>
     );
   }

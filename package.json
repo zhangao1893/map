@@ -26,6 +26,7 @@
     "lodash": "^4.17.15",
     "portfinder": "^1.0.28",
     "prop-types": "^15.7.2",
+    "pubsub-js": "^1.9.3",
     "qs": "^6.9.4",
     "react": "^16.13.1",
     "react-color": "^2.19.3",
