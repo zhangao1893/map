@@ -17,9 +17,10 @@ import React, { Component } from 'react';
 // import DynamicForm2 from './dynamicForm/dynamicForm2';//动态表单2
 // import ReactColor from './reactColor/reactColor';//取色器
 // import KeepAlive from './keepAlive/keepAlive';protal使用
-// import ReactDraggable from './reactDraggable/reactDraggable'; // 拖拽
+import ReactDraggable from './reactDraggable/reactDraggable'; // 拖拽
 // import Decorator from './decorator/decorator';
-import PubSubJs from './pubSubJs';
+// import PubSubJs from './pubSubJs';
+import ReactSortableHoc from './react-sortable-hoc'; // 拖拽排序
 
 export default class test extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ export default class test extends Component {
     return (
       <div style={{ width: '100%', height: '100%' }}>
         {/* <h1 style={{ textAlign: 'center' }}>测试</h1> */}
-        <PubSubJs />
+        <ReactSortableHoc />
       </div>
     );
   }
