@@ -7,7 +7,7 @@ import ReduxDemo from './redux'; // redux
 import EditableTable from './editableTable/editableTable'; // 可编辑表格
 import SimulateTable from './simulateTable/simulateTable'; // div仿table样式
 import RadioTest from './radioTest/radioTest'; // 可取消的单选
-import Map from './mapComponent/map'; // 地图
+import Iframe from './iframe'; // iframe
 import Pdf from './pdf/pdf'; // pdf阅读
 import Ref from './ref/ref'; // ref使用
 import Epub from './epub/epub'; // epub格式电子纸
@@ -36,7 +36,6 @@ export default class test extends Component {
     const search = this.props.location.search;
     if (search) {
       const key = search.split('=')[1];
-      console.log(key);
       this.setState({ tabKey: key });
     }
   };
@@ -73,8 +72,8 @@ export default class test extends Component {
           <Tabs.TabPane tab="可取消单选" key="6">
             <RadioTest />
           </Tabs.TabPane>
-          <Tabs.TabPane tab="Map" key="7">
-            <Map />
+          <Tabs.TabPane tab="Iframe" key="7">
+            <Iframe />
           </Tabs.TabPane>
           <Tabs.TabPane tab="pdf阅读" key="8">
             <Pdf />
